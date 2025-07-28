@@ -18,6 +18,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'your-app-name-here'  # Enclose in quotes
+          app-name: 'RaysCloudApp'  # Enclose in quotes
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .  # Deploy current directory
