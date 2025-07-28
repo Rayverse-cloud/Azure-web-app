@@ -2,22 +2,22 @@
 name: Deploy Static HTML to Azure
 
 on:
-push:
-branches:
-- main
-workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-deploy:
-runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Checkout code
-uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Updated to v3
 
-- name: Deploy to Azure Web App
-uses: azure/webapps-deploy@v2
-with:
-app-name: RaysCloudApp # Update this if your Azure App name is different
-publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-package: .
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'your-app-name-here'  # Enclose in quotes
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: .  # Deploy current directory
