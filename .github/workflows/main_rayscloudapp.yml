@@ -1,5 +1,4 @@
 # .github/workflows/main_rayscloudapp.yml
-
 name: Deploy Static HTML to Azure
 
 on:
